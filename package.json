@@ -2,6 +2,11 @@
     "name":         "coffee-script",
     "description":  "Unfancy JavaScript",
     "keywords":     ["javascript", "language"],
+
+    "seed-loader": {
+      ".coffee": "coffee-script:seed-loader"
+    },
+
     "author":       "Jeremy Ashkenas",
-    "version":      "0.6.1"
+    "version":      "0.6.1"    
 }
