@@ -4,7 +4,8 @@
     "keywords":     ["javascript", "language"],
 
     "seed-loader": {
-      ".coffee": "coffee-script:seed-loader"
+      ".coffee": "coffee-script:seed-loader",
+      ".cake": "coffee-script:seed-loader"
     },
 
     "author":       "Jeremy Ashkenas",
