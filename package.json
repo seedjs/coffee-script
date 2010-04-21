@@ -3,7 +3,7 @@
     "description":  "Unfancy JavaScript",
     "keywords":     ["javascript", "language"],
 
-    "seed-loader": {
+    "seed:readers": {
       ".coffee": "coffee-script:seed-loader",
       ".cake": "coffee-script:seed-loader"
     },

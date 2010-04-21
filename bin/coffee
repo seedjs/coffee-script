@@ -1,9 +1,9 @@
-#!/usr/bin/env seed-node
+#!/usr/bin/env seed
 
 var path = require('default:path');
 var fs = require('default:fs');
 var packagePath = path.dirname(fs.realpathSync(__filename));
 
-require.seed.register(packagePath);
+require.loader.register(packagePath);
 require('coffee-script:helpers').helpers.extend(global, require('default:sys'));
 require('coffee-script:command').run();
