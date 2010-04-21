@@ -3,9 +3,12 @@ helpers:      require('./lib/helpers').helpers
 CoffeeScript: require './lib/coffee-script'
 {spawn: spawn, exec: exec}: require('child_process')
 
+BIN_COFFEE:   'bin/coffee'
+BIN_COFFEE:   'seed-bin/coffee' if require.isTiki
+
 # Run a CoffeeScript through our node/coffee interpreter.
 run: (args) ->
-  proc: spawn 'bin/coffee', args
+  proc: spawn BIN_COFFEE, args
   proc.addListener 'error', (err) -> if err then puts err
 
 
@@ -90,10 +93,16 @@ task 'test', 'run the CoffeeScript language test suite', ->
   fs.readdir 'test', (err, files) ->
     files.forEach (file) ->
       return unless file.match(/\.coffee$/i)
+      
       source: path.join 'test', file
       fs.readFile source, (err, code) ->
         try
-          CoffeeScript.run code, {source: source}
+          if require.isTiki
+            require('./'+source) # use regular coffee loader
+          else
+            CoffeeScript.run code, {source: source}
+          
+          
         catch err
           failed_tests += 1
           puts "${red}failed:${reset} $source"

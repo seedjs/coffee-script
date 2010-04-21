@@ -1,9 +1,8 @@
-#!/usr/bin/env seed
+#!/usr/bin/env node
 
-var path = require('default:path');
-var fs = require('default:fs');
-var packagePath = path.dirname(fs.realpathSync(__filename));
+var path = require('path');
+var fs = require('fs');
+var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
 
-require.loader.register(packagePath);
-require('coffee-script:helpers').helpers.extend(global, require('default:sys'));
-require('coffee-script:command').run();
+require(lib + '/helpers').helpers.extend(global, require('sys'));
+require(lib + '/command').run();

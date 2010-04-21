@@ -2,12 +2,16 @@
     "name":         "coffee-script",
     "description":  "Unfancy JavaScript",
     "keywords":     ["javascript", "language"],
+    "author":       "Jeremy Ashkenas",
+    "version":      "0.6.1",
 
     "seed:readers": {
-      ".coffee": "coffee-script:seed-loader",
-      ".cake": "coffee-script:seed-loader"
+      ".coffee": "coffee-script:seed-reader",
+      ".cake": "coffee-script:seed-reader"
     },
+    
+    "directories": {
+      "bin": "seed-bin"
+    }
 
-    "author":       "Jeremy Ashkenas",
-    "version":      "0.6.1"    
 }

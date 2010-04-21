@@ -67,5 +67,5 @@ js: CoffeeScript.compile 'a << b', {no_wrap: on}
 
 ok js is 'a.push(b);'
 
-Lexer.extensions: []
+CoffeeScript.Lexer.extensions: []
 
